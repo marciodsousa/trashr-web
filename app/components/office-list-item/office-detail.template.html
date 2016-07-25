@@ -1,0 +1,9 @@
+  <div *ngIf="office">
+    <h2>{{office.name}} details!</h2>
+    <div><label>id: </label>{{office.id}}</div>
+    <div>
+      <label>name: </label>
+      <input [(ngModel)]="office.name" placeholder="name"/>
+      <img src="{{office.image_urls2}}"/>
+    </div>
+  </div>

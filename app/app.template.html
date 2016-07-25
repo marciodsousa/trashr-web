@@ -1,28 +1,22 @@
-<h1>{{title}}</h1>
-<h2>List of Offices</h2>
-<ul>
-	<li *ngFor="let office of offices"
-	[class.selected]="office === selectedOffice"
-	(click)="onSelect(office)">
-		<div class="mdl-card mdl-shadow--4dp">
-		  <div class="mdl-card__media"><img src="{{office.image_urls2}}" width="173" height="157" border="0"
-		   alt="" style="padding:10px;">
-		  </div>
-		  <div class="mdl-card__supporting-text">
-		    {{office.name}}
-		  </div>
-		  <div class="mdl-card__supporting-text">
-		  </div>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 text-center">
+			<h2>List of Offices</h2>
+			<hr class="star-primary">
 		</div>
-	</li>
-</ul>
-<table style="width: 100%; border: 0">
-	<tr>
-		<td>
-			<my-office-detail [office]="selectedOffice"></my-office-detail>
-		</td>
-		<td>
-			<map [offices]="offices">Loading2</map>
-		</td>
-	</tr>
-</table>
+	</div>
+	<div class="row">
+		<div class="col-sm-4 portfolio-item" *ngFor="let office of offices"
+		[class.selected]="office === selectedOffice"
+		(click)="onSelect(office)">
+			<a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+				<div class="caption">
+					<div class="caption-content">
+						<i class="fa fa-search-plus fa-3x"></i>
+					</div>
+				</div>
+				<img src="{{office.image_urls2}}" class="img-responsive" alt="">
+			</a>
+		</div>
+	</div>
+</div>
