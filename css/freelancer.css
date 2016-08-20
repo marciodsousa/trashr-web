@@ -96,6 +96,10 @@ header .intro-text .skills {
     padding-top: 200px;
     padding-bottom: 100px;
   }
+  header .mapContainer {
+    width: 100%;
+    padding: 0;
+  }
   header .intro-text .name {
     font-size: 4.75em;
   }
