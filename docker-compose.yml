@@ -1,20 +1,33 @@
+web:
+  image: jwilder/nginx-proxy
+  ports:
+   - "80:80"
+   - "443:443" # optional for HTTPS
+  volumes:
+   - /var/run/docker.sock:/tmp/docker.sock:ro
+   - ~/certs:/etc/nginx/certs # "~/certs" needs to be created on host to store SSL certificates (if necessary)
 app:
-  build: .
+  image: username/app
   links:
    - db
    - redis
   ports:
-   - "8080:8080" # change to whatever port is to be used
+   - "8080:8080"
   environment:
-   - NODE_ENV=development # production for staging
-  #env_file:
-   #- ./server/config/development.env # required only if you have environment settings to load
+   - NODE_ENV=production
+   - VIRTUAL_HOST=www.example.com
+  env_file:
+   - production.env # this would be useful on production as you set production variables only on the production machine
 db:
   image: mongo
   ports:
    - "27017:27017"
+  volumes:
+   - ~/data/mongo:/data/db # "~/data/mongo" needs to be created on host to store MongoDB data
 # Optional: if you are using Redis too, otherwise remove this section.
 redis:
   image: redis
   ports:
    - "6379:6379"
+  volumes:
+   - ~/data/redis:/data # "~/data/redis" needs to be created on host to store Redis data
