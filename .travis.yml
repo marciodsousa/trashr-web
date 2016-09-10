@@ -7,16 +7,14 @@ script: gulp
 notifications:
   email:
     - marciodesousa16@gmail.com
- deploy:
-  - provider: s3
-  ⋮ # rest of S3 deployment for MyApp.zip
-  - provider: codedeploy
-    access_key_id: "AKIAIZBWXZYLQDQYOGXA"
-    secret_access_key: "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"
-    bucket: "S3 Bucket"
-    revision_type: github
-    key: latest/MyApp.zip
-    application: TrashrCDTest
-    deployment_group: TrashrDGTest
-    on:
-      branch: testing
+deploy:
+- provider: codedeploy
+  access_key_id: "AKIAIZBWXZYLQDQYOGXA"
+  secret_access_key: "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"
+  bucket: "S3 Bucket"
+  revision_type: github
+  key: latest/MyApp.zip
+  application: TrashrCDTest
+  deployment_group: TrashrDGTest
+  on:
+    branch: testing
