@@ -15,6 +15,6 @@ deploy:
   revision_type: github
   key: latest/MyApp.zip
   application: TrashrCDTest
-  deployment_group: TrashrDGTest
+  deployment_group: TrashrDGroupTest
   on:
     branch: testing
