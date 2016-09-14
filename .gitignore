@@ -42,3 +42,4 @@ node_modules/
 *.map
 typings/
 !systemjs.config.js
+*.pem
