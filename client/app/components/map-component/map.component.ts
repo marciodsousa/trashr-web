@@ -30,4 +30,7 @@ export class MapComponent {
   // initial center position for the map
   lat: number = 52.378690558442;
   lng: number = 4.9005500972271;
+  clickedMarker(label: string, index: number) {
+    console.log(`clicked the marker: ${label || index}`)
+  }
 }

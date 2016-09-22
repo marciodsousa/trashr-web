@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.getOffices();
   }
-  onSelect(office: Office) {
+  onSelect(office: Office): void {
     this.selectedOffice = office;
   }
   getOffices() {
