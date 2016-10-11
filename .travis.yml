@@ -8,7 +8,7 @@ notifications:
   email:
   - marciodesousa16@gmail.com
 deploy:
-  bucket: S3 Bucket
+  - provider: codedeploy
   revision_type: github
   key: latest/MyApp.zip
   application: TrashrCDTest
