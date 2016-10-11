@@ -1,20 +1,21 @@
 language: node_js
 node_js:
-  - "6"
+- '6'
 before_script:
-  - npm install -g gulp
+- npm install -g gulp
 script: gulp
 notifications:
   email:
-    - marciodesousa16@gmail.com
+  - marciodesousa16@gmail.com
 deploy:
-- provider: codedeploy
-  access_key_id: "AKIAIZBWXZYLQDQYOGXA"
-  secret_access_key: "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"
-  bucket: "S3 Bucket"
+  bucket: S3 Bucket
   revision_type: github
   key: latest/MyApp.zip
   application: TrashrCDTest
   deployment_group: TrashrDGroupTest
   on:
     branch: testing
+  secret_access_key:
+    secure: eOglJst7FBybU5IzkFZhAcRNnPWsmK3xxbtBgJ3m7LYeM+naKRzMOAaUij/iPtIVRsLzfeZHsM0AU8kLqbQNFTpLpIfWKawfotd8Jm3STKoC0D0INK1ZWQdlP0yUF6RzEaRmOMOG6JT4JRu0V/bFBwRQqlYPnczPoe3C9EwnZ0Uc7r6SXtvw2l5B3BHkpwTPuseGZau5QVaty7o2AxGorwru+/KRiiZSJ6mv1poqPP1APqOKvmsG8iBUk30/qYtxhWnEPomKJqi0DlEQQ8wi2JCryXsjnkWOP0TQoBc9SLC7O9qRVOUlxujIeloZY6Ke9+0LrSLouTqYx1igWQTSd03OkZBBaWP8uHXjTxJLaKC0UxTDEuzbhqOBXbzuNMJdae8DK7TmtaBwBE3r5TDeJ3c09HBGscRUtXBtpOTPsjd09Nj7AYE1qQJkoKJXNYamuzyWeISt7YV8OSSfItZzgS75et4suqsrljElH859P/BToQgR/9ahnD+0gA+rMZYiDeg9fKVGxSVdUIYx2VpeOeS4564L2ynnaR1y87SbOl8e3A9hsXL+zswd+27lpfFDwJmsD2q1ta/GNbYf0MXsChdvf0S/t+4BMd4CVKRIJvaxcUs1OWGntJ1UEiI/VQrf4edQuUeDPkZEVY8XCVnEJIFSUZ0JRmB3nzk75hE2eLg=
+  access_key_id:
+    secure: oqIYrRDBC6cNHJIna9i6fCf375aRRXznND8ccsAC6qT835QHysrxydGWUxfWhSGv9Nv/nVF2xb0Shc0PcsFO3GQdd8/TYrY1Ke6kuaEGNybIf6CQthw4AVWeA6KfPstjFffpwAwNR3/vbCpX5H3Y/rvUXOJJ4D6pg15/DV9pAjtPrmgYE3XhN8xm1ISM5syxlMMkR+uVuRafhekHGPTCqTQ1oNF4xJrFAhrnzDt+un60fUYfI2R6+2J1wOYP8IIegW4EFx1PZT4MP1SzyUmQBqWvkhhuewXsF32/Ta5i2nAcdxE80u23OA4vBIdMo0EHRmu95uz85Kb1DYfewWjboh2jVdmxPyd4EtldDGxGySst/kfIQPpzYrv/D78OJjF4DCUnhFPvn+CiztDb3ROJ0Gn+drKbRDwHEo4zMTwvX1/kh7jHYzt2Z8q5frdjjta077HawILz4eWYs+jlwvaOf6KQrtxcN4fBIsGGtRytyXZg4FXmMQdK99OJBd3wYolW6PGqseBaEwTNHtLhy0sGQekWQATKUpMKuFMRhEmuiQ6GMqtdokxvdx2kyrIR16p9/V0S+R9Yt/YvLVdFcXqOU4Q06CqsYxt9e488RBv6yUq7ml4RL5v08CFmJqdtCn3Jz9b22ji4RyZkPO+EEg7m1FKmGkz/vWSorCRL7anYgC8=
