@@ -22,6 +22,7 @@ deploy:
   access_key_id: AKIAIP3ZRD73RM6LY7JQ
   secret_access_key: *1
   bucket: 'trashr-bucket'
+  region: 'us-west-2'
   revision_type: github
   application: TrashrCDTest
   deployment_group: TrashrDGroupTest
