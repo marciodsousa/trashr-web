@@ -17,13 +17,9 @@ deploy:
   on: &2
     repo: marciodsousa/trashr-web
     branch: testing
-  bucket: ''
 - provider: codedeploy
   access_key_id: AKIAIP3ZRD73RM6LY7JQ
   secret_access_key: *1
-  bucket: ''
-  key: ''
-  bundle_type: ''
   application: TrashrCDTest
   deployment_group: TrashrDGroupTest
   on: *2
