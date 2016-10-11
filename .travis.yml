@@ -8,14 +8,25 @@ notifications:
   email:
   - marciodesousa16@gmail.com
 deploy:
-  - provider: codedeploy
-    revision_type: github
-    key: latest/MyApp.zip
-    application: TrashrCDTest
-    deployment_group: TrashrDGroupTest
-    on:
-      branch: testing
-    secret_access_key:
-      secure: eOglJst7FBybU5IzkFZhAcRNnPWsmK3xxbtBgJ3m7LYeM+naKRzMOAaUij/iPtIVRsLzfeZHsM0AU8kLqbQNFTpLpIfWKawfotd8Jm3STKoC0D0INK1ZWQdlP0yUF6RzEaRmOMOG6JT4JRu0V/bFBwRQqlYPnczPoe3C9EwnZ0Uc7r6SXtvw2l5B3BHkpwTPuseGZau5QVaty7o2AxGorwru+/KRiiZSJ6mv1poqPP1APqOKvmsG8iBUk30/qYtxhWnEPomKJqi0DlEQQ8wi2JCryXsjnkWOP0TQoBc9SLC7O9qRVOUlxujIeloZY6Ke9+0LrSLouTqYx1igWQTSd03OkZBBaWP8uHXjTxJLaKC0UxTDEuzbhqOBXbzuNMJdae8DK7TmtaBwBE3r5TDeJ3c09HBGscRUtXBtpOTPsjd09Nj7AYE1qQJkoKJXNYamuzyWeISt7YV8OSSfItZzgS75et4suqsrljElH859P/BToQgR/9ahnD+0gA+rMZYiDeg9fKVGxSVdUIYx2VpeOeS4564L2ynnaR1y87SbOl8e3A9hsXL+zswd+27lpfFDwJmsD2q1ta/GNbYf0MXsChdvf0S/t+4BMd4CVKRIJvaxcUs1OWGntJ1UEiI/VQrf4edQuUeDPkZEVY8XCVnEJIFSUZ0JRmB3nzk75hE2eLg=
-    access_key_id:
-      secure: oqIYrRDBC6cNHJIna9i6fCf375aRRXznND8ccsAC6qT835QHysrxydGWUxfWhSGv9Nv/nVF2xb0Shc0PcsFO3GQdd8/TYrY1Ke6kuaEGNybIf6CQthw4AVWeA6KfPstjFffpwAwNR3/vbCpX5H3Y/rvUXOJJ4D6pg15/DV9pAjtPrmgYE3XhN8xm1ISM5syxlMMkR+uVuRafhekHGPTCqTQ1oNF4xJrFAhrnzDt+un60fUYfI2R6+2J1wOYP8IIegW4EFx1PZT4MP1SzyUmQBqWvkhhuewXsF32/Ta5i2nAcdxE80u23OA4vBIdMo0EHRmu95uz85Kb1DYfewWjboh2jVdmxPyd4EtldDGxGySst/kfIQPpzYrv/D78OJjF4DCUnhFPvn+CiztDb3ROJ0Gn+drKbRDwHEo4zMTwvX1/kh7jHYzt2Z8q5frdjjta077HawILz4eWYs+jlwvaOf6KQrtxcN4fBIsGGtRytyXZg4FXmMQdK99OJBd3wYolW6PGqseBaEwTNHtLhy0sGQekWQATKUpMKuFMRhEmuiQ6GMqtdokxvdx2kyrIR16p9/V0S+R9Yt/YvLVdFcXqOU4Q06CqsYxt9e488RBv6yUq7ml4RL5v08CFmJqdtCn3Jz9b22ji4RyZkPO+EEg7m1FKmGkz/vWSorCRL7anYgC8=
+- provider: s3
+  access_key_id: AKIAIP3ZRD73RM6LY7JQ
+  secret_access_key: &1
+    secure: sHUxNsEAWW+HmaCoKpSFHF0X+0cf0rZPP/OMr/f53urcQoquPI8HvR/eS1hGm//qUrB1GyD8cktvsHI9sMj/IyclHeggBEu+pwfxcfNFZm6GJKuIeI+20gre3C5iRcJT2tWHewYMYlylR/pTu3HWdYe6pYo/5TqmRx1xOrwxgLBNeUiDBZTxeOZ0A+kHZBSNzHLdqGYb1trd6CA5Uc148p4W8x8lVeLuwrUkPIZZGiC+pfBxUT+P/QfGjtm+hm1YTtxoNhOJs1GZTZijWkIWUnZtIVn8nXrDLaReKFJ1lY/T21pjPSfPhdQj3L8Prs03QI7NvoUWZ/UBvh29HA8vjTbuusMlcsLzl8eTR/oTiBxO5xeR+c1YsJHFr6UjZLtOFc7Yw2AXdoI9/GpMXDa4/8mBpd65+7F0tBkuGIXXYwsPBUq2EEak5bQzGuBd8li/EaVaCLB9Po+UwvKjnclD2F0fB9bJ+0KRLwLaBmmaqzONhkUg8zKjJBk7hOOjDce38EjCR5NzVpiFshC4jb4655YEGWPlvh1pbQkTjGU6gahMlFpJWDU4DvUQfN7E8txQ5VbVJsuhX//pTTnYRjX8w09hWKV7Kpumw1g9nlVnIgkzpOWgOP4JsDX36u8RxsY61mY4gLOV9SDdb+9aXgvb6xeqViORcBNCDOQyycw6cXA=
+  local_dir: dpl_cd_upload
+  skip_cleanup: true
+  on: &2
+    repo: marciodsousa/trashr-web
+    branch: testing
+  bucket: ''
+- provider: codedeploy
+  access_key_id: AKIAIP3ZRD73RM6LY7JQ
+  secret_access_key: *1
+  bucket: ''
+  key: ''
+  bundle_type: ''
+  application: TrashrCDTest
+  deployment_group: TrashrDGroupTest
+  on: *2
+before_deploy:
+- mkdir -p dpl_cd_upload
+- mv index.html dpl_cd_upload/''
